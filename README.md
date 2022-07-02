@@ -1,11 +1,11 @@
 # README
 
-# The excersise consist on creating a single page application 
+### The excersise consist on creating a single page application 
 
 ![Screenshot](shoot-app.png)
 
 
-# LANGUEGES, FRAMEWORKS AND DATABASES
+### LANGUEGES, FRAMEWORKS AND DATABASES
 
 1. Rails 7
 2. SLIM
@@ -19,13 +19,13 @@
 10. Capybara
 
 
-# HOW TO SET UP THE REPOSITORY TO RUN THE APP 
+### HOW TO SET UP THE REPOSITORY TO RUN THE APP 
    `git clone git@github.com:angelacuahutle/test2-app.git`
 
   `.bin/dev`
 
 
-# ROADMAP
+### ROADMAP
 
 - [x] Install mysql
 - [x] Add Tailwind
@@ -40,7 +40,7 @@
 - [x] Finishes and tailwind design 
 - [x] Deploy 
 
-## CRITERIA AND REQUIREMENTS
+#### CRITERIA AND REQUIREMENTS
 
 The excersise consist on building a single page application implementing the following criteria:
   On entry, it shows the following buttons:
