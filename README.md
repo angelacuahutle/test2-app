@@ -1,4 +1,4 @@
-# test2-app
+# README
 
 # The excersise consist on creating a single page application 
 
