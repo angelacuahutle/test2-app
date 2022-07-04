@@ -24,6 +24,7 @@ Follow these steps to run:
 ```sh
 git clone git@github.com:angelacuahutle/test2-app.git
 cd test2-app.git
+cp config/example/application.yml .application.yml
 rails db:migrate db:seed
 bundle install
 .bin/dev

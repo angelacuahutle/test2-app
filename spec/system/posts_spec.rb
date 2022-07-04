@@ -5,14 +5,14 @@ RSpec.describe 'Employee modal', type: :system, js: true do
 
   before do
     employees
+    visit root_path
   end
 
   describe 'form flow' do
-    visit root_path # employee#index
     it 'has a card for each employee' do
-      expect(page).to have_css('.employee-card') # 25 times
+      expect(page).to have_css(('.employee-card'), items: 25)
     end
-    within '#user-form' do
+    it '#user-form' do
       context 'when valid params' do
         click_link "Personal Data"
         expect(page).to have_content('a_modal_content_here')
