@@ -43,10 +43,9 @@ rspec
 - [x] Install and setup rails rspec
 - [x] Write Capybara test
 - [x] Generate teacher model using scaffold
-- [ ] Trobleshoot capybara test
+- [x] Trobleshoot capybara test
       No errors allowed
       Failures allowed!
-- [ ] Write controller
 - [ ] Views
 - [ ] Finishes and tailwind design
 - [ ] Deploy
@@ -55,30 +54,30 @@ rspec
 
 The excersise consist on building a single page application implementing the following criteria:
 On entry, it shows the following buttons:
-- [x] Personal Data
-- [x] Employment
+- [] Personal Data
+- [] Employment
 
 Clicking on Personal Data, will cause a **Modal** to appear, displaying the following entry fields:
-  - [x]First Name – **required**, 25 character limit
-  - [x]Last Name – **required**, 50 characters limit
-  - [x]Nickname – **not required**
-  - [x]Email Address - **required**
-  - [x]Phone Number - **required**
+  - [ ]First Name – **required**, 25 character limit
+  - [ ]Last Name – **required**, 50 characters limit
+  - [ ]Nickname – **not required**
+  - [ ]Email Address - **required**
+  - [ ]Phone Number - **required**
 The model will have Save & Cancel buttons
-- [x]Email field validation must be done **dynamically**, as the user enters it, cannot proceed to the
+- [ ]Email field validation must be done **dynamically**, as the user enters it, cannot proceed to the
   next field until this is filled and validated
-- [x]Error will appear below the field if any
-- [x]Phone number validation must be done **dynamically** and needs to be in the form xxx-xxx-xxxx
+- [ ]Error will appear below the field if any
+- [ ]Phone number validation must be done **dynamically** and needs to be in the form xxx-xxx-xxxx
   So, if the user enters 5551115555, as they’re entering it, it will **be displayed as 555-111-5555**
-- [x]When the form is saved, it automatically goes into the second form: Employment. This will also
+- [ ]When the form is saved, it automatically goes into the second form: Employment. This will also
   be a **modal**. It will have the following fields: 
   - Employer - **required** 
   - Date Started - **required**
   - Date Employment Ended - **required**
-- [x]Date fields requirements: **calendar widget** as well as manual input with field validation and 
+- [ ]Date fields requirements: **calendar widget** as well as manual input with field validation and 
   **automatic insertion of separators** (MM/DD/YYYY)
-- [x]There will be an “Add Employment” button. When clicked, a new set of employment fields are added.
-- [x]The Save button will be **grayed out, until all the required fields** are filled.
+- [ ]There will be an “Add Employment” button. When clicked, a new set of employment fields are added.
+- [ ]The Save button will be **grayed out, until all the required fields** are filled.
 
 When you’re done with the exercise, please share your GitHub repo and a Readme explaining
 what needs to be done to make the application run.
