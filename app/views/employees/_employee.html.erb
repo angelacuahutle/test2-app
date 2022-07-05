@@ -1,0 +1,41 @@
+<div class="" id="<%= dom_id employee %>">
+  <a href="#" class="grid grid col-2 p-3 bg-white hover:bg-gray-100 shadow-md border border-gray-200 rounded-lg max-w-sm">
+    <p class="my-5">
+      <strong class="block font-medium mb-1">First name:</strong>
+      <%= employee.first_name %>
+    </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Last name:</strong>
+      <%= employee.last_name %>
+    </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Email:</strong>
+      <%= employee.email %>
+    </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Password:</strong>
+      <%= employee.password %>
+    </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Phone number:</strong>
+      <%= employee.phone_number %>
+    </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Date employment started:</strong>
+      <%= employee.date_employment_started %>
+    </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Employment:</strong>
+      <%= employee.employment %>
+    </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Date employment ended:</strong>
+      <%= employee.date_employment_ended %>
+    </p>
+  </a>
+</div>
+<% if action_name != "show" %>
+  <%= link_to "Personal Data", employee, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "show modal", new_employee_path, remote: true %>
+  <hr class="mt-6">
+<% end %>
