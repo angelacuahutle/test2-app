@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: %i[ show edit update destroy ]
+  before_action :ensure_frame_response, only: [:new, :edit]
+
 
   # GET /employees or /employees.json
   def index
@@ -58,7 +59,7 @@ class EmployeesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_employee
       @employee = Employee.find(params[:id])
     end
@@ -66,5 +67,10 @@ class EmployeesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def employee_params
       params.require(:employee).permit(:first_name, :last_name, :email, :password, :phone_number, :date_employment_started, :employment, :date_employment_ended)
+    end
+    
+    def ensure_frame_response
+      return unless Rails.env.development?
+      redirect_to root_path unless turbo_frame_request?
     end
 end
