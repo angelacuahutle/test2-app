@@ -1,0 +1,14 @@
+<%= turbo_frame_tag :remote_modal, target:top do%>
+  <div class="modal fade" data-controller="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button"></button>
+        </div>
+        <div class="modal-body">
+          <%= render "employee/form", proyect:proyect %>
+        </div>
+      </div>
+    </div>
+  <% end %>
