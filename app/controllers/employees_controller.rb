@@ -5,6 +5,7 @@ class EmployeesController < ApplicationController
   # GET /employees or /employees.json
   def index
     @employees = Employee.all
+    @employee = Employee.new
   end
 
   # GET /employees/1 or /employees/1.json
@@ -13,19 +14,31 @@ class EmployeesController < ApplicationController
 
   # GET /employees/new
   def new
-    @employee = Employee.new
   end
 
   # GET /employees/1/edit
   def edit
   end
 
+  def personal_data
+    @employee.first_name = params[:first_name]
+    @employee.last_name = params[:last_name]
+    @employee.email = params[:email]
+    @employee.password = params[:password]
+    @employee.phone_number = params[:phone_number]
+  end
+
+  def employment_data
+    @employee.date_employment_started = params[:date_employment_started]
+    @employee.employment = params[:employment]
+    @employee.date_employment_ended = params[:date_employment_ended]
+  end
+
   # POST /employees or /employees.json
   def create
-    @employee = Employee.new(employee_params)
-
     respond_to do |format|
       if @employee.save
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@employee, partial: "personal_data", locals: {employee: @employee}) }
         format.html { redirect_to employee_url(@employee), notice: "Employee was successfully created." }
         format.json { render :show, status: :created, location: @employee }
       else
@@ -39,6 +52,7 @@ class EmployeesController < ApplicationController
   def update
     respond_to do |format|
       if @employee.update(employee_params)
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@employee, partial: "personal_data", locals: {employee: @employee}) }
         format.html { redirect_to employee_url(@employee), notice: "Employee was successfully updated." }
         format.json { render :show, status: :ok, location: @employee }
       else
@@ -66,7 +80,7 @@ class EmployeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def employee_params
-      params.require(:employee).permit(:first_name, :last_name, :email, :password, :phone_number, :date_employment_started, :employment, :date_employment_ended)
+      params.require(:employee).permit(:id, :first_name, :last_name, :email, :password, :phone_number, :date_employment_started, :employment, :date_employment_ended)
     end
     
     def ensure_frame_response
