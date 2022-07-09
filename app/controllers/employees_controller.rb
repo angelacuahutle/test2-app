@@ -16,6 +16,14 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
   end
 
+  def preview
+    @preview_employee = Employee.new(employee_params)
+    redirect_to request.url, notice: @preview_employee.errors.full_messages unless @preview_employee.valid?
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
   # GET /employees/1/edit
   def edit
   end
