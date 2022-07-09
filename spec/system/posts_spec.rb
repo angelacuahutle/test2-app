@@ -22,7 +22,7 @@ RSpec.describe 'Employee modal', type: :system, js: true do
         fill_in('Password', with: 'admin123,')
         fill_in('Phone Number', with: '55555555,')
         expect('#date-started').to match(number_regex_with_dashes)
-        click_button('Next')
+      click_button('Next')
         expect('Employement').to be_enabled
         # Modal closes
         click_link 'Employment'
