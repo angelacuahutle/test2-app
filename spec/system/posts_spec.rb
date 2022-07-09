@@ -16,7 +16,7 @@ RSpec.describe 'Employee modal', type: :system, js: true do
       context 'when valid params' do
         click_link "Personal Data"
         expect(page).to have_content('a_modal_content_here')
-        fill_in('First Name', with: 'ASDFASDFASD')
+        fill_in('First Name', with: 'required, 25 character limit')
         fill_in('Last Name', with: 'ASDFASDFASDF')
         fill_in('Email', with: 'required@required.com')
         fill_in('Password', with: 'admin123,')
