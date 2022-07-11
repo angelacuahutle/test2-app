@@ -9,6 +9,7 @@ export default class extends Controller {
   }
 
   submit() {
+    //debugger
     this.submitButtonTarget.click()
     clearTimeout(this.timeout)
     this.timeout = setTimeout(()=> {
