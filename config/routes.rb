@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  resources :employees
+  resources :employees do
+    collection do
+      post :preview
+    end
+  end
   root "employees#index"
 end
