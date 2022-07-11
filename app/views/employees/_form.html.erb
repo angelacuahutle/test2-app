@@ -1,4 +1,4 @@
-<%= form_with(model: employee, class: "contents", data: { controller: 'validator', action: "input->validator#submit"}) do |form| %>
+<%= form_with(model: employee, class: "contents", data: { controller: 'validator', action: "insput->validator#submit"}) do |form| %>
   <% if employee.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>

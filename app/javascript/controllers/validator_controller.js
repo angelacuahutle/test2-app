@@ -9,11 +9,11 @@ export default class extends Controller {
   }
 
   submit() {
-    console.log('checkpoint reached')
     this.submitButtonTarget.click()
     clearTimeout(this.timeout)
-    this.time = setTimeout(()=> {
-    this.submitButtonTarget.click()
+    this.timeout = setTimeout(()=> {
+      this.submitButtonTarget.click()
     }, 500)
+    console.log('checkpoint reached')
   }
 }
