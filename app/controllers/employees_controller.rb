@@ -19,6 +19,7 @@ class EmployeesController < ApplicationController
   def preview
     @preview_employee = Employee.new(employee_params)
     respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Employee Data saved!' }
       format.turbo_stream
     end
   end
@@ -32,8 +33,8 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
 
     respond_to do |format|
-      if @employee.save
-        format.html { redirect_to employee_url(@employee), notice: "Employee was successfully created." }
+      if @employee.save!
+        format.html { redirect_to root_path, notice: "Employee was successfully created." }
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new, status: :unprocessable_entity }
