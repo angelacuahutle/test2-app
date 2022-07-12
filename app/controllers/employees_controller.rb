@@ -1,9 +1,9 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: %i[ show edit update destroy ]
+  #before_action :set_employee, only: %i[ show edit update destroy ]
 
   # GET /employees or /employees.json
   def index
-    @employees = Employee.all
+    @employees = Employee.all.order('created_at DESC')
     @employee = Employee.new
   end
 
@@ -41,6 +41,10 @@ class EmployeesController < ApplicationController
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def employment_data
+    
   end
 
   # PATCH/PUT /employees/1 or /employees/1.json
