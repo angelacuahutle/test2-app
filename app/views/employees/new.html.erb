@@ -4,4 +4,9 @@
       <%= render "form", employee: @employee %>
     <% end %>
   <% end %>
+  <%= turbo_frame_tag 'employment-modal' do %>
+      <%= tag.div data: { controller: "modal_controller" }, style: "padding: 30px;" do %>
+      <%= render "employment_form", employee: @employee %>
+    <% end %>
+  <% end %>
 </div>
