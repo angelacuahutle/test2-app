@@ -29,9 +29,8 @@ class EmployeesController < ApplicationController
   # POST /employees or /employees.json
   def create
     @employee = Employee.new(employee_params)
-
     respond_to do |format|
-      if @employee.save! && @employee.valid?
+      if @employee.save!
         format.html { redirect_to root_path, notice: 'Employee was successfully created.' }
         format.json { render :show, status: :created, location: @employee }
       else
