@@ -44,7 +44,7 @@ class EmployeesController < ApplicationController
   end
 
   def employment_data
-    
+    @employee = Employee.new(employee_params)
   end
 
   # PATCH/PUT /employees/1 or /employees/1.json
