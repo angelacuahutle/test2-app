@@ -7,15 +7,14 @@
 ### LANGUEGES, FRAMEWORKS AND DATABASES
 
 1. Rails 7
-2. SLIM
-3. Hotwire
-4. Stimulus
-5. TurboFrames
-6. Tailwind
-7. MySQL
-8. RSpec
-9. Faker
-10. Capybara
+2. Hotwire
+3. Stimulus
+4. TurboFrames
+5. Tailwind
+6. MySQL
+7. RSpec
+8. Faker
+9. Capybara
 
 ### HOW TO SET UP THE REPOSITORY TO RUN THE APP
 
