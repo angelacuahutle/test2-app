@@ -60,7 +60,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'factory_bot_rails'
   gem 'capybara', '~> 3.32', '>= 3.32.2'
-  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
+  gem 'selenium-webdriver', '~> 4.2', '>= 4.2.1'
 end
 
 group :development do

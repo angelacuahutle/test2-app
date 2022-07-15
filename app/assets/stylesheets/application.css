@@ -14,11 +14,12 @@
  *= require_self
  */
 
+
  #modal {
   position: absolute;
   z-index: 2;
-  right: 10px;
-  top: 170px;
+  right: 40px;
+  top: 180px;
   width: 400px;
   word-break: break-word;
   border-radius: 6px;

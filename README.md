@@ -2,7 +2,7 @@
 
 ### The excersise consist on creating a single page application
 
-![Screenshot](shoot-app.png)
+![Screenshot](.app/images/test-2.png)
 
 ### LANGUEGES, FRAMEWORKS AND DATABASES
 
