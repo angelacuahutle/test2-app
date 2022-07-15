@@ -29,6 +29,11 @@ class EmployeesController < ApplicationController
   # POST /employees or /employees.json
   def create
     @employee = Employee.new(employee_params)
+    @employee.first_name = personal_data_params[:first_name]
+    @employee.last_name = personal_data_params[:last_name]
+    @employee.email = personal_data_params[:email]
+    @employee.password = personal_data_params[:password]
+
     respond_to do |format|
       if @employee.save!
         format.html { redirect_to root_path, notice: 'Employee was successfully created.' }
@@ -63,6 +68,12 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def personal_data
+    %i[first_name last_name email password].each do |param|
+      session[param] = params[:employee][param]
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -74,5 +85,13 @@ class EmployeesController < ApplicationController
   def employee_params
     params.require(:employee).permit(:first_name, :last_name, :email, :password, :phone_number,
                                      :date_employment_started, :employment, :date_employment_ended)
+  end
+
+  def personal_data_params
+    h = {}
+    %i[first_name last_name email password].each do |param|
+      h[param] = session[param]
+    end
+    h
   end
 end
