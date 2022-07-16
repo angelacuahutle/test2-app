@@ -72,6 +72,7 @@ class EmployeesController < ApplicationController
     %i[first_name last_name email password].each do |param|
       session[param] = params[:employee][param]
     end
+    redirect_to new_employee_path, data: { turbo_frame: 'employment-modal' }
   end
 
   private
