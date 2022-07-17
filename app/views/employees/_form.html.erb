@@ -43,9 +43,9 @@
       data: { validator_target: "submitButton" } %>
     <%= form.button 'Submit', formaction: personal_data_employees_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer",
       data: { turbo_frame: '_top'} %>
-    <%= form. button link_to "Next Step: Employement", new_employee_path,  data: { turbo_frame: 'employment-modal' }, class: 'button-3 ml-2 rounded-lg py-3 px-5 bg-blue inline-block font-medium' %>
+    <%= form. button link_to "Next Step: Employement", new_employee_path,  data: { turbo_frame: 'employment-modal' }, class: 'rounded-lg py-3 px-5 bg-green text-white inline-block font-medium' %>
   </div>
-    <%= form.button link_to "Back to employees", employees_path, class: "ml-2 rounded-lg py-3 px-5 bg-red-100 inline-block font-medium",
+    <%= form.button link_to "Back to employees", employees_path, class: "rounded-lg mt-2 py-3 px-5 bg-red-600 text-white inline-block font-medium",
      data: { turbo_frame: '_top'} %>  
   <% end %>
 <% end %>
