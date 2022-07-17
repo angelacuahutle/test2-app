@@ -34,6 +34,7 @@ class EmployeesController < ApplicationController
     @employee.email = personal_data_params[:email]
     @employee.password = personal_data_params[:password]
 
+
     respond_to do |format|
       if @employee.save!
         format.html { redirect_to root_path, notice: 'Employee was successfully created.' }
@@ -72,7 +73,6 @@ class EmployeesController < ApplicationController
     %i[first_name last_name email password].each do |param|
       session[param] = params[:employee][param]
     end
-    redirect_to new_employee_path, data: { turbo_frame: 'employment-modal' }
   end
 
   private

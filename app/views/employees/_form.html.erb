@@ -38,12 +38,12 @@
     <%= form.number_field :phone_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="inline">
+  <%= tag.div class:"inline" do %>
     <%= form.button 'Preview', formaction: preview_employees_path, name: '_method', value: 'post', 
       data: { validator_target: "submitButton" } %>
-    <%= form.button 'Next', formaction: personal_data_employees_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer",
+    <%= form.button 'Submit', formaction: personal_data_employees_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer",
       data: { turbo_frame: '_top'} %>
     <%= form.button link_to "Back to employees", employees_path, class: "ml-2 rounded-lg py-3 px-5 bg-red-100 inline-block font-medium",
      data: { turbo_frame: '_top'} %>  
-  </div>
+  <% end %>
 <% end %>
