@@ -8,9 +8,9 @@ RSpec.describe 'Employee modal', type: :system, js: true do
     visit root_path
   end
 
-  it { expect(page).to have_css('div.grid', count: 25) }
-  it expect(page).to have_button('Personal Data')
-  it expect(page).to have_button('Employment')
+  it { expect(page).to have_css('div.grid', visible: false) }
+  it { expect(page).to have_button('Personal Data') }
+  it { expect(page).to have_button('Employment') }
 
   describe '#modal-form' do
     context 'when valid params' do
