@@ -51,6 +51,10 @@ gem "figaro"
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+gem "tailwindcss-rails", "~> 2.0"
+
+gem 'slim-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -60,7 +64,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'factory_bot_rails'
   gem 'capybara', '~> 3.32', '>= 3.32.2'
-  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
+  gem 'selenium-webdriver', '~> 4.2', '>= 4.2.1'
 end
 
 group :development do
@@ -73,5 +77,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-gem "tailwindcss-rails", "~> 2.0"

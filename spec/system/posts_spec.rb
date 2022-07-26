@@ -1,28 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe 'Employee modal', type: :system, js: true do
-  let(:employees) { create_list(:employees, 25)}
+  let(:employees) { FactoryBot.create_list(:employee, 25) }
 
   before do
     employees
     visit root_path
   end
 
-  describe 'form flow' do
-    it 'has a card for each employee' do
-      expect(page).to have_css(('.employee-card'), items: 25)
-    end
-    it '#user-form' do
-      context 'when valid params' do
-        click_link "Personal Data"
-        expect(page).to have_content('a_modal_content_here')
-        fill_in('First Name', with: 'required, 25 character limit')
-        fill_in('Last Name', with: 'ASDFASDFASDF')
-        fill_in('Email', with: 'required@required.com')
+  it { expect(page).to have_css('div.grid', visible: false) }
+  it { expect(page).to have_button('Personal Data') }
+  it { expect(page).to have_button('Employment') }
+
+  describe '#modal-form' do
+    context 'when valid params' do
+      it 'displays modal' do
+        click_link('Personal Data')
+        expect(page).to have_content('modal_content_here')
+        fill_in('first_name', with: 'required', length: { maximum: 25 })
+        fill_in('last_name', with: 'required', length: { maximum: 50 })
+        fill_in('email', with: 'required@required.com')
         fill_in('Password', with: 'admin123,')
         fill_in('Phone Number', with: '55555555,')
         expect('#date-started').to match(number_regex_with_dashes)
-      click_button('Next')
+        click_button('Next')
         expect('Employement').to be_enabled
         # Modal closes
         click_link 'Employment'
@@ -32,8 +33,10 @@ RSpec.describe 'Employee modal', type: :system, js: true do
         fill_in('Date Employment Ended', with: 'required')
         click_button('Save')
       end
+    end
 
-      context 'when invalid email' do
+    context 'when invalid email' do
+      it 'shows error mesagge' do
         expect(page).to have_button('Save', disabled: true)
         fill_in('First Name', with: 'twentysixcharactersherehehehheheheheheeh')
         expect to have_css('span.error').with_message('Max characters limit (25) surpassed')

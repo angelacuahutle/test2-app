@@ -7,4 +7,8 @@ class Employee < ApplicationRecord
             length: { minimum: 4, maximum: 254 },
             presence: true
   validates :password, presence: true
+# validates :phone_number,
+# format: { with: /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/, message: "Enter valid phone" },
+#           length: { maximum: 10 },
+#           presence: true
 end
