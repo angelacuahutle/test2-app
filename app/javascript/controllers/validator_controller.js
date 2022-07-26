@@ -16,3 +16,5 @@ export default class extends Controller {
     }, 500)
   }
 }
+
+//@preview_employee.errors.full_messages
