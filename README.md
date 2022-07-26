@@ -1,10 +1,10 @@
 # README
 
-### The excersise consist on creating a single page application
+### The exercise consist on creating a single page application
 
 ![Screenshot](.app/images/test-2.png)
 
-### LANGUEGES, FRAMEWORKS AND DATABASES
+### LANGUAGES, FRAMEWORKS AND DATABASES
 
 1. Rails 7
 2. Hotwire
