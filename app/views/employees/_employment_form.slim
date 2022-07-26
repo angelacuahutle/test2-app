@@ -1,0 +1,24 @@
+= form_with(model: employee, class: "contents", data: { controller: 'validator', action: 'input->validator#submit'}) do |form|
+  - if employee.errors.any?
+    #error_explanation.bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
+
+    h2
+      = pluralize(employee.errors.count, "error")
+      |  prohibited this employee from being saved:
+    ul
+      - employee.errors.each do |error|
+        li
+          = error.full_message
+  #preview
+  .my-5
+    = form.label :date_employment_started
+    = form.datetime_field :date_employment_started, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+  .my-5
+    = form.label :employment
+    = form.text_field :employment, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+  .my-5
+    = form.label :date_employment_ended
+    = form.datetime_field :date_employment_ended, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+  .inline
+    = form.button 'Preview', formaction: preview_employees_path, name: '_method', value: 'post',  data: { validator_target: "submitButton" }
+    = form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer", data: { turbo_frame: '_top'}

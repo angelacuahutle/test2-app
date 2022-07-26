@@ -53,7 +53,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 gem "tailwindcss-rails", "~> 2.0"
 
-gem 'slim', '~> 4.1'
+gem 'slim-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
