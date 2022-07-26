@@ -14,6 +14,7 @@ export default class extends Controller {
     this.timeout = setTimeout(()=> {
       this.submitButtonTarget.click()
     }, 500)
-    console.log('checkpoint reached')
   }
 }
+
+//@preview_employee.errors.full_messages
