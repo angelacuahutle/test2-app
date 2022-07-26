@@ -1,9 +1,0 @@
-= tag.div class:"w-full", data: { controller: "modal_controller" } do
-  - if notice.present?
-    %p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.inline-block= notice
-  .flex.justify-between.items-center
-    %h1.font-bold.text-4xl.mb-4 Employees
-    = link_to "Personal Data", new_employee_path, data: { turbo_frame: 'modal' }, class: 'button-3 ml-2 rounded-lg py-3 px-5 bg-blue inline-block font-medium'
-    = link_to "Employment", new_employee_path,  data: { turbo_frame: 'employment-modal' }, class: 'button-3 ml-2 rounded-lg py-3 px-5 bg-blue inline-block font-medium'
-  #employees.min-w-full.gird.grid-cols-3
-    = render @employees
