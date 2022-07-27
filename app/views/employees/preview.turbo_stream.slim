@@ -1,2 +1,3 @@
 = turbo_stream.update :preview do
-  = @preview_employee.errors.full_messages unless @preview_employee.valid?
+  .bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
+    = @preview_employee.errors.full_messages unless @preview_employee.valid?

@@ -119,4 +119,11 @@ Unit
       fill_in('First Name', with: 'required, 25 character limit')
       expect to find css ('span.error') with_message 'Max characters limit (25) surpassed'
 
+# Notes
 
+accesar a @preview_employee en el controlador de javascript
+case input type (datetime, numbers, large text, field)
+  slim/tailwind error(type)
+case input label (datetime, numbers, large text, field)
+  slim/tailwind error(type)
+addEventListener('turbo:load')
