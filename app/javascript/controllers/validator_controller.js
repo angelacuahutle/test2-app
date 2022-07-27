@@ -9,7 +9,7 @@ export default class extends Controller {
     this.validateParamTarget.hidden = true;
   }
 
-  validate() {
+  validatitor() {
     const inputData = {
       "label": this.validateParamTarget.name,
       "value": this.validateParamTarget.value
