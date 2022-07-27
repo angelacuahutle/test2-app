@@ -15,11 +15,11 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
   end
 
-  def preview
+  def preview(label, value)
     @preview_employee = Employee.new(employee_params)
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Employee Data saved!' }
-      format.turbo_stream
+      format.turbo_stream if @preview_employee.errors[label].any?
     end
   end
 
@@ -33,7 +33,6 @@ class EmployeesController < ApplicationController
     @employee.last_name = personal_data_params[:last_name]
     @employee.email = personal_data_params[:email]
     @employee.password = personal_data_params[:password]
-
 
     respond_to do |format|
       if @employee.save!

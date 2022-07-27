@@ -1,3 +1,7 @@
 = turbo_stream.update :preview do
+  - if label == :first_name
+    = form.text_field :first_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+  - #i if label == :last_name
+
   .bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
-    = @preview_employee.errors.full_messages unless @preview_employee.valid?
+    = @preview_employee.errors[label].full_messages unless @preview_employee.valid?
