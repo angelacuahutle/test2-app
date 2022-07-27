@@ -1,19 +1,20 @@
 import { Controller } from "@hotwired/stimulus"
+import { FetchRequest } from "@rails/request.js"
 
 // Connects to data-controller="modal"
 export default class extends Controller {
   static targets = ['validateParam']
   
   connect() {
-    this.submitButtonTarget.hidden = true;
+    this.validateParamTarget.hidden = true;
   }
 
   validate() {
     const inputData = {
-      "label": this.validateParamTarget.label,
+      "label": this.validateParamTarget.name,
       "value": this.validateParamTarget.value
     }
-    get(`preview/params?${inputData.label}&${inputData.value}`)
+    get(`preview/param${inputData.label}&${inputData.value}`)
   }
 }
 
