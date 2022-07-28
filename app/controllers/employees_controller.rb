@@ -16,6 +16,7 @@ class EmployeesController < ApplicationController
   end
 
   def preview(label, value)
+    debugger
     @preview_employee = Employee.new(employee_params)
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Employee Data saved!' }

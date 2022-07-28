@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import { FetchRequest } from "@rails/request.js"
+import { get } from "@rails/request.js"
 
 // Connects to data-controller="modal"
 export default class extends Controller {
@@ -9,12 +9,9 @@ export default class extends Controller {
     this.validateParamTarget.hidden = true;
   }
 
-  validatitor() {
-    const inputData = {
-      "label": this.validateParamTarget.name,
-      "value": this.validateParamTarget.value
-    }
-    get(`preview/param${inputData.label}&${inputData.value}`)
+  validate() {
+    setTimeout(2000);
+    get(`employees/preview/?label=${this.validateParamTarget.name}&value=${this.validateParamTarget.value}`)
   }
 }
 
