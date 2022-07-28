@@ -4,7 +4,7 @@ class EmployeesController < ApplicationController
   # GET /employees or /employees.json
   def index
     @employees = Employee.all.order('created_at DESC')
-    @employee = Employee.new
+    @employee = Employee.new(employee_params)
   end
 
   # GET /employees/1 or /employees/1.json
@@ -15,12 +15,10 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
   end
 
-  def preview(label, value)
-    debugger
+  def preview
     @preview_employee = Employee.new(employee_params)
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Employee Data saved!' }
-      format.turbo_stream if @preview_employee.errors[label].any?
+      format.turbo_stream notice: @preview_employee.errors.full_messages unless @preview_employee.valid?
     end
   end
 
@@ -82,8 +80,16 @@ class EmployeesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :email, :password, :phone_number,
-                                     :date_employment_started, :employment, :date_employment_ended)
+    params.permit(
+      :first_name,
+      :last_name,
+      :email,
+      :password,
+      :phone_number,
+      :date_employment_started,
+      :employment,
+      :date_employment_ended
+    )
   end
 
   def personal_data_params

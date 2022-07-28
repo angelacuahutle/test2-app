@@ -10,9 +10,9 @@ export default class extends Controller {
   }
 
   validate() {
-    setTimeout(2000);
-    get(`employees/preview/?label=${this.validateParamTarget.name}&value=${this.validateParamTarget.value}`)
+    const label = this.validateParamTarget.name.match(/\[(.*?)\]/)[1];
+    get(`employees/preview/?label=${label}=${this.validateParamTarget.value}`,{
+      responseKind: 'turbo-stream'
+    })
   }
 }
-
-//@preview_employee.errors.full_messages
