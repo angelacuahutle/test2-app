@@ -1,10 +1,10 @@
 = form_with(model: @employee, class: "contents", data: { controller: 'validator', action: 'input->validator#validate'}) do |form|
+
   #preview
   .my-5
     = form.label :first_name
     = form.text_field :first_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", data: { validator_target: "validateParam" }
-    .bg-red.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
-    = @employee.errors[params.keys.first] if @employee&.valid?
+    
   .my-5
     = form.label :last_name
     = form.text_field :last_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"

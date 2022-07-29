@@ -18,7 +18,8 @@ class EmployeesController < ApplicationController
   def preview
     @preview_employee = Employee.new(employee_params)
     respond_to do |format|
-      format.turbo_stream notice: @preview_employee.errors.full_messages unless @preview_employee.valid?
+      redirect_to request.url, notice: @preview_employee.errors.full_messages unless @preview_employee.valid?
+      format.turbo_stream
     end
   end
 
