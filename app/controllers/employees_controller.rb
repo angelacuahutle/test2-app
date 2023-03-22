@@ -4,7 +4,7 @@ class EmployeesController < ApplicationController
   # GET /employees or /employees.json
   def index
     @employees = Employee.all.order('created_at DESC')
-    @employee = Employee.new
+    @employee = Employee.new(employee_params)
   end
 
   # GET /employees/1 or /employees/1.json
@@ -18,7 +18,7 @@ class EmployeesController < ApplicationController
   def preview
     @preview_employee = Employee.new(employee_params)
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Employee Data saved!' }
+      redirect_to request.url, notice: @preview_employee.errors.full_messages unless @preview_employee.valid?
       format.turbo_stream
     end
   end
@@ -34,14 +34,11 @@ class EmployeesController < ApplicationController
     @employee.email = personal_data_params[:email]
     @employee.password = personal_data_params[:password]
 
-
     respond_to do |format|
       if @employee.save!
         format.html { redirect_to root_path, notice: 'Employee was successfully created.' }
-        format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -84,8 +81,16 @@ class EmployeesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :email, :password, :phone_number,
-                                     :date_employment_started, :employment, :date_employment_ended)
+    params.permit(
+      :first_name,
+      :last_name,
+      :email,
+      :password,
+      :phone_number,
+      :date_employment_started,
+      :employment,
+      :date_employment_ended
+    )
   end
 
   def personal_data_params

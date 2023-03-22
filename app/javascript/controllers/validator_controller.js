@@ -1,20 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
+import { get } from "@rails/request.js"
 
 // Connects to data-controller="modal"
 export default class extends Controller {
-  static targets = ['submitButton']
+  static targets = ['validateParam']
   
   connect() {
-    this.submitButtonTarget.hidden = true;
+    this.validateParamTarget.hidden = true;
   }
 
-  submit() {
-    this.submitButtonTarget.click()
-    clearTimeout(this.timeout)
-    this.timeout = setTimeout(()=> {
-      this.submitButtonTarget.click()
-    }, 500)
+  validate() {
+    const label = this.validateParamTarget.name.match(/\[(.*?)\]/)[1];
+    get(`employees/preview/?label=${label}=${this.validateParamTarget.value}`,{
+      responseKind: 'turbo-stream'
+    })
   }
 }
-
-//@preview_employee.errors.full_messages
